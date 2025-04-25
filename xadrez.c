@@ -1,57 +1,59 @@
 #include <stdio.h>
 
+void moverBispo(int casas) {
+//Recursividade para mover o bispo.
+    if(casas > 0) {
+        printf("*Direita*, *Cima*\n");
+        moverBispo(casas - 1);
+    }
+}
+
+void moverTorre(int casas) {
+//Recursividade para mover o torre.
+    if(casas > 0) {
+        printf("*Direita*\n");
+        moverTorre(casas - 1);
+    }
+}
+
+void moverRainha(int casas) {
+//Recursividade para mover a rainha.
+    if(casas > 0) {
+        printf("*Esquerda*\n");
+        moverRainha(casas - 1);
+    }
+}
+
+void moverCavalo(int casas) {
+//Recursividade para mover o cavalo.
+    if(casas > 0) {
+        printf("*Baixo*\n");
+        moverCavalo(casas - 1);
+    } else {
+        printf("*Esquerda*\n");
+    }
+}
+
+
+
 int main() {
 
-    int bispo = 1, torre = 1, rainha = 1, cavalo = 1;
-
-//Movimentação do Bispo. 
-
     printf("***MOVIMENTO DO BISPO***\n");
-
 //Andando 5 casas para diagonal.
-
-    for (bispo = 0; bispo <= 4; bispo++) {
-        printf("*Cima*, *Direita*\n");
-    }
-
-//Movimento da Torre.
+    moverBispo(5);
 
     printf("***MOVIMENTO DA TORRE***\n");
-
 //Andando 5 casas para direita.
-
-    while (torre <= 5)
-    {
-    printf("*Direta*\n");
-    torre++;
-    }
-
-//Movimento da Rainha.
+    moverTorre(5);
 
     printf("***MOVIMENTO DA RAINHA***\n");
-
 //Andando 8 casas para esquerda.
-
-    do
-    {
-     printf("*Esquerda*\n");
-     rainha++;  
-    } while (rainha <= 8);
-    
-//Movimentação do Cavalo.
+    moverRainha(8);
 
     printf("***MORIVEMENTAÇÂO DO CAVALO***\n");
 
-//Andando 2 casas para baixo e 1 à esquerda.
-
-    for (cavalo = 0; cavalo <=1; cavalo++) 
-    {
-        printf("*Baixo*\n");
-    }
-    if (cavalo = 2) {
-        printf("*Esquerda*\n");
-    }        
-   
+//Andando em L 2 casas para baixo e 1 à esquerda.
+    moverCavalo(2);
 
     return 0;
 }
